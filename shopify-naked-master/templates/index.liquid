@@ -1,0 +1,20 @@
+{% comment %}
+  Very important reading:
+  http://docs.shopify.com/themes/liquid-basics/what-is-true-and-false-in-liquid
+  Learn how to read theme settings in your theme.
+{% endcomment %}
+
+{{ page.content }}
+
+{% if collections.featured.products.size > 0 %}
+
+{% for product in collections.featured.products %}
+
+  <li>
+  <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
+  <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
+  </li>  
+
+{% endfor %}
+
+{% endif %}

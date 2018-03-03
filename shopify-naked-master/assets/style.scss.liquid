@@ -1,0 +1,92 @@
+/* CSS styles go in here */
+body {
+    font-family:Arial;
+    font-size:16px;
+    margin:0 auto;
+}
+
+h1 {
+    font-size:.8rem;
+    text-transform:uppercase;
+    font-weight:normal;
+    text-align:center;
+}
+
+ul {
+    padding:0;
+    margin:0;
+}
+
+ /* Start header section */
+header {
+    height:3rem;
+    padding: 2vw;
+    font-size:.8rem;
+    text-transform:uppercase;
+    text-decoration:none;
+}
+
+#nav {
+    position:fixed;
+    left:2vw;
+    top:3.5vw;
+}
+
+#nav ul {
+    list-style:none;
+}
+
+
+#logo {
+    position: fixed;
+    /* center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    height: auto;
+    width:30vw;
+}
+
+#logo img {
+    height:auto;
+}
+
+#cart {
+    position:fixed;
+    right:2vw;
+    top:3.5vw;
+}
+
+ /* End Header section */
+
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  border-top:1px solid black;
+}
+
+.product-list {
+    width: calc(100%/3);
+    box-sizing: border-box;
+    list-style:none;
+    overflow: hidden;
+    text-transform:uppercase;
+    font-size:.8rem;
+}
+
+.product-list img {
+    max-width:100%;
+    max-height:100%;
+    border:1px solid black;
+}
+
+.product-wrapper {
+    
+}
+
+.product-wrapper div {
+    background-color:yellow;
+}
