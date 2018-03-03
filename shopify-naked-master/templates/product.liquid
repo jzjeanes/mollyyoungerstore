@@ -2,30 +2,37 @@
 {% assign sold_out = 'Sold Out' %}
 {% assign unavailable = 'Unavailable' %}
 
-<div itemscope itemtype="http://schema.org/Product">
+
+{% comment %}
+-------------------------------------
+Start product-photos
+{% endcomment %}
+<div itemscope itemtype="http://schema.org/Product" id="product-photos">
   
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
   <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
   
   <form action="/cart/add" method="post" enctype="multipart/form-data">
-    
     {% if product.images.size == 0 %}
-  
+    
+    
       <img src="{{ '' | img_url: 'grande' }}" alt="" />
     
     {% else %}
-    
+
       {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
       <a href="{{ featured_image | img_url: '1024x1024' }}">
-        <img src="{{ featured_image | img_url: 'grande' }}" alt="{{ product.title | escape }}" />
+
+        <img class="image-zoom" src="{{ featured_image | img_url: 'grande' }}" alt="{{ product.title | escape }}" data-zoom="{{ featured_image | img_url: 'grande', scale:2 }}" />
       </a>
+
 
       {% if product.images.size > 1 %}
         <ul>
           {% for image in product.images %}
             <li>
               <a href="{{ image | img_url: '1024x1024' }}">
-                <img src="{{ image | img_url: 'large' }}" alt="{{ image.alt | escape }}" />
+                <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
               </a>
             </li>
           {% endfor %}
@@ -33,18 +40,24 @@
       {% endif %}
     
     {% endif %}
+</div>
+
+
+
+
+{% comment %}
+-------------------------------------
+Start product-details
+{% endcomment %}
     
+<div id="product-details">    
       <h1>{{ product.title }}</h1>
-      
       {% comment %}
       {% assign product_vendor_handle = product.vendor | handle %}
-         {% endcomment %}
-      {% comment %}
       Do we have a collection that has the same name as our product vendor name?
       If we do, let's have the vendor link point to it.
       If not, we will point to the automatic vendor collection.
-      {% endcomment %}
-      {% comment %}
+      
       {% if collections[product_vendor_handle].handle == product_vendor_handle %}
         {% assign vendor_url = collections[product_vendor_handle].url %}
       {% else %}
@@ -118,6 +131,7 @@
         </div>
         {% endif %}
       {% endif %}
+  </div>
 
   </form>
 
@@ -163,7 +177,7 @@ var selectCallback = function(variant, selector) {
     
     // Whether the variant is in stock or not, we can update the price and compare at price.
     if ( variant.compare_at_price > variant.price ) {
-      jQuery('#product-price').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+' <s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
+      jQuery('#product-price').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")+ '</s>');
     } else {
       jQuery('#product-price').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + '</span>' );
     }        
