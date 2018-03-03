@@ -6,15 +6,22 @@
 
 {{ page.content }}
 
-{% if collections.featured.products.size > 0 %}
 
-{% for product in collections.featured.products %}
 
-  <li>
-  <img src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.title | escape  }}" />    
-  <a class="shop-now" href="{{ product.url }}">{{ product.title | escape  }}</a>                              
-  </li>  
+  {% if collection.description.size > 0 %}
+    {{ collection.description }}
+  {% endif %}
+  
+<div class="grid">
+  {% for product in collections.all.products %}
+    <ul class="product-list">
+      {% include 'product-item' %}
+    </ul>
+  {% else %}
+    <p>There are no products in this view.</p>
+  {% endfor %}
+</div>
 
-{% endfor %}
-
-{% endif %}
+  {% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}
+  {% endif %}

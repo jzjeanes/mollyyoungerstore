@@ -1,6 +1,7 @@
 [
   {
     "name": "Welcome",
+    "icon": "default",
     "settings": [
       {
         "type": "paragraph",
@@ -10,6 +11,7 @@
   },
   {
     "name": "Example setting",
+    "icon": "default",
     "settings": [
       {
         "type": "header",
