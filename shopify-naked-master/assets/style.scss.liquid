@@ -1,4 +1,4 @@
-/* CSS styles go in here */
+/* Global styles */
 body {
     font-family:Arial;
     font-size:16px;
@@ -11,14 +11,32 @@ footer {
 
 h1 {
     font-size:.8rem;
+    letter-spacing:.02rem;
     text-transform:uppercase;
     font-weight:normal;
     text-align:center;
+    margin-bottom:4rem;
+    margin-top:3rem;
 }
 
 ul {
     padding:0;
     margin:0;
+}
+
+
+/* Links */
+
+a {
+    text-decoration:none;
+}
+
+a:visited {
+    color:inherit;
+}
+
+a:hover {
+    text-decoration:underline;
 }
 
 
@@ -38,9 +56,9 @@ ul {
 
  /* Start header section */
 header {
-    height:3rem;
-    padding: 2vw;
+    height:8vw;
     font-size:.8rem;
+    letter-spacing:.02rem;
     text-transform:uppercase;
     text-decoration:none;
 }
@@ -49,6 +67,7 @@ header {
     position:fixed;
     left:2vw;
     top:3.5vw;
+    z-index:1;
 }
 
 #nav ul {
@@ -61,11 +80,13 @@ header {
     /* center the element */
     right: 0;
     left: 0;
+    top:2.2vw;
     margin-right: auto;
     margin-left: auto;
     /* give it dimensions */
     height: auto;
-    width:30vw;
+    width:25vw;
+    z-index:1;
 }
 
 #logo img {
@@ -85,14 +106,15 @@ header {
 
 
 #product-details {
-    width:50%;
+    width:40%;
     box-sizing: border-box;
     text-transform:uppercase;
-    font-size:.8rem;
+    font-size:.7rem;
+    padding:2vw;
 }
 
 #product-photos {
-    width:50%;
+    width:60%;
     box-sizing: border-box;
     overflow: hidden;
 }
