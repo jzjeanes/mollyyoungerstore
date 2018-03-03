@@ -101,7 +101,7 @@
     {% comment %}
       Cart 
     {% endcomment %}
-      <a href="/cart" id="cart">Cart: {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} {% comment %}({{ cart.total_price | money }}) {% endcomment %}</a>
+      <a href="/cart" id="nav-cart">Cart: {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} {% comment %}({{ cart.total_price | money }}) {% endcomment %}</a>
     
     
 
@@ -129,7 +129,7 @@
   </main>
 
   <footer>
-    Copyright © {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.
+    Copyright © {{ "now" | date: "%Y" }} {{ shop.name }}.
   </footer>
 
   {{ 'shop.js'  | asset_url | script_tag }}

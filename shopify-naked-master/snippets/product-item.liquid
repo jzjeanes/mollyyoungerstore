@@ -12,20 +12,24 @@
   </a>
 
 {% comment %} these are the product details {% endcomment %}
-  <div>
-  <a href="{{ product.url | within: collection }}">
-    {{ product.title }}
-  </a>
-  {% if product.price_varies %}From{% endif %}
-  {{ product.price | money }}
-  {% if on_sale %}
-    <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
-  {% endif %}
-  {% comment %}
-    All themes by Shopify should support the Product Reviews app out of the box.
-    https://apps.shopify.com/product-reviews
-  {% endcomment %}
-  <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+  <div class="product-snippet">
+      <span class="product-snippet-title">
+          <a href="{{ product.url | within: collection }}">
+            {{ product.title }}
+          </a>
+      </span>
+      <span class="product-snippet-price">
+          {% if product.price_varies %}From{% endif %}
+          {{ product.price | money }}
+          {% if on_sale %}
+            <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
+          {% endif %}
+      </span>
+      {% comment %}
+        All themes by Shopify should support the Product Reviews app out of the box.
+        https://apps.shopify.com/product-reviews
+      {% endcomment %}
+      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
   </div>
   
 </li>
