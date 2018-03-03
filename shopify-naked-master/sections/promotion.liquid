@@ -1,36 +1,61 @@
+<!-- SCHEMA EXAMPLE 
+
 <div id="section-cta">
   <div class="container">
-    <h3> {{ section.settings.text-box }} </h3>
-    <a href="{{ section.settings.link }}" class="btn btn--cta">{{ section.settings.linktext }}</a>
+    <div class="feature-image"> {{ section.settings.feat-img }} </div>
+    <a href="{{ section.settings.link }}" class="btn btn--cta">{{ section.settings.copy }}</a>
   </div>
 </div>
+
+-->
+
+
+
+<div id="promo-section">
+    <div class="grid">
+        <div class="half-large">
+            <img src="{{ 'feat-img-placeholder-2.jpg' | asset_url }}">
+        </div>
+        <div class="half-large large-padding">
+            <p class="large">Range 1—Early Sculptural Form</p>
+            <p>For Autumn and Winter. Six bags and wallets available now in eight colours.</p>
+            <a href="/collections/all/" class="btn">Shop now</a>
+        </div>
+    </div>
+</div>
+
+
+
 {% schema %}
 {
-  "name": "Call to action",
+  "name": "Promo section",
   "settings": [
     {
-      "id": "text-box",
-      "type": "text",
-      "label": "Heading",
-      "default": "Title"
+      "id": "feat-img",
+      "type": "image",
+      "label": "Feature image"
     },
+    
     {
       "id": "link",
       "type": "url",
       "label": "Button link"
     },
     {
-      "id": "linktext",
+      "id": "copy",
       "type": "text",
-      "label": "Button text",
-      "default": "Click here"
+      "label": "Promo copy",
+      "default": "Welcome to the store. Here, you can buy my things."
     }
   ],
   "presets": [
     {
-      "name": "Call to Action",
-      "category": "CTA button"
+      "name": "Feature promo",
+      "category": "Promo"
     }
   ]
 }
 {% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
