@@ -10,6 +10,9 @@ var switchImage = function(newImageSrc, newImage, mainImageDomEl) {
 };
 
 jQuery(function($) {
+    
+    
+    
                     
   /* Placeholder JS */
   /*==========================*/
