@@ -1,9 +1,9 @@
-<div id="promo-section">
+<div id="detail-section">
     <div class="grid">
         <div class="three_fifths">
             <img src="{{ section.settings.featureimage | img_url: '1024x'}}">
         </div>
-        <div class="two_fifths large-padding" style="background-color:{{ section.settings.background_color }}">
+        <div class="two_fifths large-padding">
             <p class="large">{{ section.settings.header }}</p>
             <p>{{ section.settings.copy }}</p>
             <a href="{{ section.settings.buttonlink }}" class="btn">{{ section.settings.buttontext }}</a>
@@ -43,12 +43,6 @@
         "id": "buttonlink",
         "type": "url",
         "label": "Button link"
-      },
-      {
-        "type": "color",
-        "id": "background_color",
-        "label": "Background color",
-        "default": "#ffe66f"
       }
     ]
   }

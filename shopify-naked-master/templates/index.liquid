@@ -3,28 +3,31 @@
   http://docs.shopify.com/themes/liquid-basics/what-is-true-and-false-in-liquid
   Learn how to read theme settings in your theme.
   {% section 'promo' %}
+  {% section 'detail' %}
 {% endcomment %}
 
 {{ page.content }}
 {{ content_for_index }}
 {% section 'promo' %}
 
-
-
-  {% if collection.description.size > 0 %}
-    {{ collection.description }}
-  {% endif %}
-  
-<div class="grid">
-  {% for product in collections.all.products %}
-    <ul class="product-list">
-      {% include 'product-item' %}
-    </ul>
-  {% else %}
-    <p>There are no products in this view.</p>
-  {% endfor %}
+<div id="home-products">
+    <h1>Products</h1>
+    
+      {% if collection.description.size > 0 %}
+        {{ collection.description }}
+      {% endif %}
+      
+    <div class="grid">
+      {% for product in collections.all.products %}
+        <ul class="product-list">
+          {% include 'product-item' %}
+        </ul>
+      {% else %}
+        <p>There are no products in this view.</p>
+      {% endfor %}
+    </div>
+    
+      {% if paginate.pages > 1 %}
+        {{ paginate | default_pagination }}
+      {% endif %}
 </div>
-
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
