@@ -2,14 +2,15 @@
   Very important reading:
   http://docs.shopify.com/themes/liquid-basics/what-is-true-and-false-in-liquid
   Learn how to read theme settings in your theme.
+  {% section 'promo' %}
 {% endcomment %}
 
 {{ page.content }}
 {{ content_for_index }}
-{% section 'promotion' %}
+{% section 'promo' %}
 
 
-<h1>{{ collection.title }}</h1>
+
   {% if collection.description.size > 0 %}
     {{ collection.description }}
   {% endif %}

@@ -1,0 +1,56 @@
+<div id="promo-section">
+    <div class="grid">
+        <div class="half-large">
+            <img src="{{ section.settings.featureimage | img_url: '1024x'}}">
+        </div>
+        <div class="half-large large-padding">
+            <p class="large">{{ section.settings.header }}</p>
+            <p>{{ section.settings.copy }}</p>
+            <a href="{{ section.settings.buttonlink }}" class="btn">{{ section.settings.buttontext }}</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "promo",
+    "settings": [
+      {
+        "id": "featureimage",
+        "type": "image_picker",
+        "label": "Feature image",
+        "default": "assets/feat-img-placeholder.jpg"
+      },
+      {
+        "id": "header",
+        "type": "text",
+        "label": "Header",
+        "default": "Range 1—Early Sculptural Forms"
+      },
+      {
+        "id": "copy",
+        "type": "text",
+        "label": "Copy",
+        "default": "Handmade Natural Latex bags and wallets, available across eight colours."
+      },
+      {
+        "id": "buttontext",
+        "type": "text",
+        "label": "Button text",
+        "default": "Shop now"
+      },
+      {
+        "id": "buttonlink",
+        "type": "url",
+        "label": "Button link"
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
