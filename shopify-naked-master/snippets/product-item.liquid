@@ -8,7 +8,10 @@
 
 {% comment %} this is the image {% endcomment %}
   <a href="{{ product.url | within: collection }}">
-    <img src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+    <div class="reveal">
+    <img class="img_fillcontainer hide" src="{{ product.images.last | img_url: 'large' }}" alt="{{ product.images.last.alt | escape }}" />
+    <img src="{{ product | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}" class="img_fillcontainer"/>
+    </div>
   </a>
 
 {% comment %} these are the product details {% endcomment %}

@@ -1,10 +1,10 @@
 <div id="promo-section">
     <div class="grid">
         <div class="three_fifths">
-            <img src="{{ section.settings.featureimage | img_url: '1024x'}}">
+            <img src="{{ section.settings.featureimage | img_url: '1024x'}}" class="img_fillcontainer" />
         </div>
         <div class="two_fifths large-padding" style="background-color:{{ section.settings.background_color }}">
-            <p class="large">{{ section.settings.header }}</p>
+            <h1 class="large">{{ section.settings.header }}</h1>
             <p>{{ section.settings.copy }}</p>
             <a href="{{ section.settings.buttonlink }}" class="btn">{{ section.settings.buttontext }}</a>
         </div>

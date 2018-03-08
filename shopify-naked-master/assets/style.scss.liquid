@@ -1,4 +1,4 @@
-/* Global styles */
+/*============================= Global styles =============================*/
 html {
     font-family:Arial;
     text-transform:uppercase;
@@ -22,20 +22,21 @@ footer {
 
 
 
-/* Typography */
+/*============================= Typography =============================*/
 
 
 h1, h2, h3, h4, th {
-    font-size:1rem;
-    letter-spacing:.02em;
     font-weight:normal;
 }
 
 h1 {
-    text-align: center;
+    font-size:2.5vw;
+    text-transform:none;
+    line-height:1.2;
     margin-bottom:2rem;
     margin-top:1rem;
 }
+
 
 ul {
     padding:0;
@@ -43,7 +44,7 @@ ul {
 }
 
 p {
-    margin-bottom:2rem;
+    margin-bottom:1rem;
 }
 
 .large {
@@ -63,7 +64,7 @@ p {
 
 
 
-/* Forms and buttons */
+/*============================= Forms and buttons =============================*/
 
 select {
     height:2rem;
@@ -73,6 +74,7 @@ select {
 label {
     display:block;
     font-weight:bold;
+    margin-bottom:.5rem;
 }
 
 .quantity {
@@ -83,12 +85,31 @@ table {
     width:100%;
 }
 
+input {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    padding: 1rem 2rem;
+    font-size:1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform:uppercase;
+    cursor: pointer;
+}
+
+input:hover {
+    text-decoration: underline;
+}
 
 
 
 
 
-/* Links */
+
+
+
+/*============================= Links =============================*/
 
 a {
     text-decoration:none;
@@ -115,7 +136,7 @@ a:active {
 
 
 
-/* Promo/Content elements */
+/*============================= Promo/Content elements =============================*/
 .three_fifths {
     width:60%;
     height:auto;
@@ -134,7 +155,7 @@ a:active {
     padding:15% 6%;
 }
 
-.three_fifths img {
+.img_fillcontainer {
     max-width:100%;
     height:auto;
     display:block;
@@ -150,8 +171,14 @@ a:active {
     margin-top:6rem;
 }
 
+#home-products h1 {
+    text-align:center;
+    font:inherit;
+    text-transform:inherit;
+}
 
-/* Start zoom styles */
+
+/*============================= Product image zoom =============================*/
 .zoom {
 	display: block;
 	position: relative;
@@ -164,7 +191,8 @@ a:active {
 
 
 
- /* Start header section */
+ /*============================= Start header section =============================*/
+ 
 header {
     height:9vw;
     letter-spacing:.02rem;
@@ -212,19 +240,22 @@ header {
 
  
  
-/* Product page */
+/*============================= Product page =============================*/
+
 #product-container {
   display: flex;
   flex-wrap: wrap;
+  border-bottom:1px solid black;
 }
 
 
 #product-details {
     width:40%;
     box-sizing: border-box;
-    padding:2vw;
-    position:fixed;
-    left:60%;
+    padding:2vw 2vw 4vw 2vw;
+    position:sticky;
+    top:5rem;
+    height:min-content;
 }
 
 #product-photos {
@@ -246,7 +277,24 @@ header {
     padding:0;
 }
 
-/* Product listing */
+#product-price {
+    margin-bottom:3rem;
+}
+
+#product-variants {
+    margin-bottom:1rem;
+}
+
+#product-description {
+    margin-bottom:3rem;
+}
+
+
+
+
+/* ============================= Product listing =============================*/
+
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -259,18 +307,13 @@ header {
     overflow: hidden;
 }
 
-.product-list img {
-    max-width:100%;
-    max-height:100%;
-}
-
 .product-wrapper {
     border-right:1px solid black;
     border-bottom:1px solid black;
 }
 
 .product-snippet {
-    padding: 1% 2% 2% 3%;
+    padding: 2% 2% 2% 3%;
 }
 
 .product-snippet-price {
@@ -278,11 +321,44 @@ header {
 }
 
 
-/* Cart */
+/*============================= Product image change on hover =============================*/
+
+
+.reveal .hide { 
+    display: block !important; 
+    visibility: visible !important;
+}
+
+.product:hover .reveal img { 
+    opacity: 1; 
+}
+.reveal { 
+    position: relative; 
+}
+
+.reveal .hide { 
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  opacity: 0;
+}
+
+.reveal:hover .hide { 
+  z-index: 100000;
+  opacity: 1;    
+}
 
 
 
-/* Responsive styles */
+/*============================= Cart =============================*/
+
+
+
+
+
+/*============================= Responsive styles =============================*/
+
+/*============================= Mobile =============================*/
 
 @media screen and (max-width: 830px) {
 
@@ -303,10 +379,6 @@ header {
 #nav {
     position:fixed;
     top:5vw;
-}
-
-.large {
-    font-size:2rem;
 }
 
 
@@ -334,6 +406,8 @@ header {
 }
 
 }
+
+/*============================= Big Computers! =============================*/
 
 @media screen and (min-width: 1300px) {
 
