@@ -69,16 +69,6 @@ Start product-details
       <h2 itemprop="brand">{{ product.vendor | link_to: vendor_url }}</h2>
       {% endcomment %}
       
-      <div itemprop="description" id="product-description">
-        {{ product.description }}
-      </div>
-      
-      {% comment %}
-        All themes by Shopify should support the Product Reviews app out of the box.
-        https://apps.shopify.com/product-reviews
-      {% endcomment %}
-      <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
-      
       <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
         <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
         {% if product.available %}
@@ -103,8 +93,10 @@ Start product-details
       {% endif %}       
 
       <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">
+        
         <select id="product-select" name="id">
         {% for variant in product.variants %}
+          
           <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
           {{ variant.title }} - {{ variant.price | money }}
           </option>
@@ -126,6 +118,18 @@ Start product-details
       <div id="product-add">
         <input type="submit" name="add" id="add" value="{{ add_to_cart | escape }}">
       </div>
+      
+      <div itemprop="description" id="product-description">
+        {{ product.description }}
+      </div>
+      
+      {% comment %}
+        All themes by Shopify should support the Product Reviews app out of the box.
+        https://apps.shopify.com/product-reviews
+      {% endcomment %}
+      <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
+      
+      
       
       {% if collection %}
         {% if collection.previous_product or collection.next_product %}

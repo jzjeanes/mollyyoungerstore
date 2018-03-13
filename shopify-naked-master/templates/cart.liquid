@@ -36,7 +36,7 @@
       {% endif %}
 
       <tr>
-        <td>
+        <td class="cart-image">
           <a href="{{ collection_url }}{{ item.url }}">
             <img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}" />
           </a>
@@ -63,7 +63,9 @@
               {% endunless %}
             {% endfor %}
           {% endif %}
+           {% comment %}
           <h3>{{ item.vendor }}</h3>
+          {% endcomment %}
         </td>
         <td>{{ item.price | money }}</td>
         <td>
