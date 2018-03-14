@@ -17,7 +17,18 @@ footer {
 }
 
 
+.align-right {
+    text-align:right;
+}
 
+.page-heading {
+    text-align:center;
+    margin-top:2rem;
+}
+
+.align-left {
+    text-align:left;
+}
 
 
 
@@ -32,13 +43,14 @@ h1, h2, h3, h4, th {
 
 h1 {
     font-size:1rem;
-    margin-bottom:1rem;
+    margin-bottom:2rem;
     margin-top:1rem;
 }
 
 h3 {
     margin-top:2rem;
     font-size:1rem;
+    margin-bottom:0;
 }
 
 
@@ -57,6 +69,10 @@ p {
     margin-top:0;
 }
 
+.small {
+    text-transform:none;
+}
+
 .large {
     font-size:2.9vw;
     text-transform:none;
@@ -68,7 +84,7 @@ p {
 
 
 
-/*============================= Forms and buttons =============================*/
+/*============================= Forms, buttons, tables =============================*/
 
 
 label {
@@ -76,13 +92,6 @@ label {
     margin-bottom:.5rem;
 }
 
-.quantity {
-    width:2rem;
-}
-
-table {
-    width:100%;
-}
 
 input, .btn {
     background-color: transparent;
@@ -96,17 +105,22 @@ input, .btn {
     display: inline-block;
     text-transform:uppercase;
     cursor: pointer;
+    margin-bottom:.25rem;
 }
 
-#product-add input {
+.primarycta {
     background-color:black;
     color:white;
-    margin-bottom:3rem;
     margin-left: 0;
 }
 
 input:hover {
     text-decoration: underline;
+}
+
+textarea {
+  width: 80%;
+  height: 4.25rem;
 }
 
 /* I'm not happy about how this select is styled, but it's here! */
@@ -212,7 +226,9 @@ a:active {
     border-bottom:1px solid black;
 }
 
-
+#promo-section p {
+    margin-bottom:2rem;
+}
 
 #home-products {
     margin-top:6rem;
@@ -229,7 +245,7 @@ a:active {
 .zoom {
 	display: block;
 	position: relative;
-	cursor:crosshair;
+	cursor:zoom-in;
 }
 		
 
@@ -319,7 +335,7 @@ header {
 /*============================= Content page, Cart =============================*/
 
 .page, #cart {
-    width:60vw;
+    width:70vw;
     margin:0 auto;
     padding-top:4vw;
 }
@@ -355,19 +371,79 @@ iframe {
     margin-right:1rem;
 }
 
+.quantity {
+    width: 3rem;
+    height: 0rem;
+    padding-left: .5rem;
+    padding-right: .25rem;
+}
+
+.quantity-column {
+    width:15%;
+}
+
+.total-column {
+    width:8%;
+}
+
+.remove-column {
+    width:2%;
+    text-align:center;
+}
+
+#cart-actions {
+    width:50%;
+    float:right;
+    text-align:right;
+}
+
+#special-instructions {
+    width:50%;
+    float:left;
+    margin-top:2rem;
+}
+
+.cart-buttons {
+    padding-bottom:1rem;
+}
+
+.empty {
+    text-align:center;
+}
+
 /* Table styles */
 
 td img {
     width:100%;
     height:auto;
+    display:block;
 }
 
 thead {
     text-align:left;
 }
 
-td {
-    padding:.5rem;
+td, th {
+    padding: 0rem 1rem 0rem 0rem;
+}
+
+th {
+    padding-bottom:.5rem;
+}
+
+
+table {
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, tr {
+    border-bottom:1px solid black;
+
+}
+
+.no-desktop {
+    display:none;
 }
 
 
@@ -396,10 +472,15 @@ td {
 
 #product-details li {
     list-style:initial;
+    margin-left: 1.25rem;
 }
 
 #product-details ul {
     margin-bottom:1rem;
+}
+
+#product-details h1 {
+    margin-bottom:0;
 }
 
 #product-photos {
@@ -431,6 +512,10 @@ td {
 }
 
 #product-description {
+    margin-bottom:3rem;
+}
+
+#product-add {
     margin-bottom:3rem;
 }
 
@@ -495,8 +580,15 @@ td {
 
 
 
-/*============================= Cart =============================*/
+/*============================= Mobile overrides =============================*/
 
+
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+-webkit-appearance: none;
+border-radius: 0;
+}
 
 
 
@@ -515,16 +607,25 @@ td {
 }
 }
 
-/*============================= Mobile =============================*/
+
+/*============================= Little Computers =============================*/
 
 @media screen and (max-width: 830px) {
 
 html {
-    font-size:11px;
+    font-size:12px;
 }
 
 .product-list {
     width: calc(100%/2);
+}
+
+.product-snippet {
+    font-size:.9rem;
+}
+
+.large-padding {
+    padding: 8% 4%;
 }
 
 header {
@@ -538,6 +639,9 @@ header {
     top:5vw;
 }
 
+.large {
+    font-size:4vw;
+}
 
 #logo {
     position: fixed;
@@ -562,6 +666,143 @@ header {
     top:5vw;
 }
 
+.page, #cart {
+    width:85vw;
+    padding-top:2vw;
+}
+
+}
+
+/*============================= Tiny Computers =============================*/
+
+@media screen and (max-width: 550px) {
+ 
+     header {
+         height:16vw;
+     }
+     
+     .page, #cart {
+        width:95vw;
+        padding-top:2vw;
+    }
+     
+     #nav, #nav-cart {
+         top:6vw;
+     }
+     
+     #logo {
+         width:42vw;
+         top:5vw;
+     }
+     
+     #home-products {
+         margin-top: 3rem;
+     }
+     
+     .three_fifths {
+        width:100%; 
+     }
+     
+     .two_fifths {
+         width:100%;
+     }
+     
+     .large {
+         font-size:1.75rem;
+     }
+     
+     #product-photos {
+        width: 100%;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-snap-type: mandatory;
+     }
+     
+     #product-photos span, #product-photos ul, #product-photos li {
+         display:inline-block;
+         width:85vw;
+     }
+     
+    
+     #product-details {
+         width:100%;
+     }
+     
+     
+     #cart h2, #cart p, table {
+         font-size:.9rem;
+     }
+     
+     td, th {
+         padding: 0rem 0.5rem 0rem 0rem;
+     }
+     
+     .total-column {
+         display:none;
+     }
+     
+     .cart-image {
+         width:30%;
+         margin-right:.5rem;
+     }
+    
+    
+    
+    thead {
+        display:none;
+    }
+    
+    tbody {
+        border-top:1px solid black;
+    }
+    
+    td div {
+        margin-top:.5rem;
+    }
+    
+    .remove-column {
+        width:2rem;
+        position:relative;
+        right:1rem;
+    }
+    
+    .remove-column h2 {
+        font-size:1.25rem !important;
+    }
+    
+    #special-instructions, #cart-actions  {
+        float:none;
+        width:100%;
+        text-align:center;
+    }
+    
+    
+    /* Put the quantity input under the price in a bad way */
+    
+    .price-column {
+        position:relative;
+        top:-1.5rem;
+    }
+    
+    td.quantity-column {
+        position:relative;
+        top:1rem;
+        right:3.85rem;
+    }
+    
+    .item-column {
+        width:45%;
+        padding-left:1vw;
+    }
+    
+    input[type="number"]:hover, input[type="password"]:hover,
+    textarea:hover, select:hover {
+      font-size: 16px;
+    }
+    
+    
 }
 
 /*============================= Big Computers! =============================*/

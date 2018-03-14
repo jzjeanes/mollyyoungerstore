@@ -1,5 +1,5 @@
 <div id="cart">
-<h1>Shopping Cart</h1>
+<h1 class="page-heading">Shopping Cart</h1>
   
 {% if cart.item_count > 0 %}
 
@@ -12,8 +12,8 @@
         <th>Item</th>
         <th> </th>
         <th>Price</th>
-        <th>Quantity</th>
-        <th>Total</th>
+        <th class="quantity-column">Quantity</th>
+        <th class="total-column">Total</th>
         <th> </th>
       </tr>
     </thead>
@@ -41,7 +41,7 @@
             <img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}" />
           </a>
         </td>
-        <td>
+        <td class="item-column">
           <h2>
             <a href="{{ collection_url }}{{ item.url }}">
               {{ item.title }}
@@ -67,13 +67,15 @@
           <h3>{{ item.vendor }}</h3>
           {% endcomment %}
         </td>
-        <td>{{ item.price | money }}</td>
-        <td>
-          <input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}" />
+        <td class="price-column">
+            <h2>{{ item.price | money }}</h2> 
         </td>
-        <td>{{ item.line_price | money }}</td>
-        <td>
-          <a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+        <td class="quantity-column">
+          <input type="number" pattern="\d*" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}" />
+        </td>
+        <td class="total-column">{{ item.line_price | money }}</td>
+        <td class="remove-column">
+          <h2><a href="/cart/change?line={{ forloop.index }}&quantity=0">×</a></h2>
         </td>
       </tr>
     {% endfor %}
@@ -87,28 +89,36 @@
   a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive.
   {% endcomment %}
   
-  <h3>Subtotal <em>{{ cart.total_price | money }}</em></h3>
-  <a href="{{ continue_shopping_url }}">Continue shopping</a>
-  <input type="submit" name="update" value="Update cart" />
-  <input type="submit" name="checkout" value="Check out" />    
-  {% comment %}Paypal and Google checkout buttons{% endcomment %}
-  {% if additional_checkout_buttons %}
-    {{ content_for_additional_checkout_buttons }}
-  {% endif %}
+  <div id="cart-actions">
+      <h3>Subtotal <strong>{{ cart.total_price | money }}</strong></h3>
+        <p class="small">Shipping and taxes are calculated at checkout</p>
+      <div class="cart-buttons">
+          <input type="submit" name="update" value="Update cart" />
+          <input type="submit" name="checkout" class="primarycta" value="Check out" />
+            {% comment %}Paypal and Google checkout buttons{% endcomment %}
+          {% if additional_checkout_buttons %}
+          {{ content_for_additional_checkout_buttons }}
+          {% endif %}
+      </div>
+  or <a href="{{ continue_shopping_url }}">Keep shopping</a>
+
+  </div>
   
   {% comment %}
   For the special instructions to be submitted with order,
   we need to use a name attribute set to 'note'.
   {% endcomment %}
-  <p>Special instructions for seller</p>
-  <textarea name="note">{{ cart.note }}</textarea>
+  <div id="special-instructions">
+      <p>Special instructions or notes</p>
+      <textarea name="note">{{ cart.note }}</textarea>
+  </div>
 
 </form>
 
 {% else %}
-
-  <h2>It appears that your cart is currently empty!</h2>
-  <h3>You can continue browsing <a href="/collections/all">here</a>.</h3>
-
+<div class="empty">
+  <h2>Your cart is empty.</h2>
+  <p><a href="/collections/all" class="btn">Continue shopping</a></p>
+</div>
 {% endif %}
 </div>
