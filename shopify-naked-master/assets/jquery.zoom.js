@@ -9,7 +9,7 @@
 		callback: false,
 		target: false,
 		duration: 120,
-		on: 'click', // other options: grab, click, toggle
+		on: 'grab', // other options: grab, click, toggle
 		touch: false, // enables a touch fallback
 		onZoomIn: false,
 		onZoomOut: false,
