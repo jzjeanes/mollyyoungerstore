@@ -23,7 +23,7 @@ Start product-photos
       {% if product.images.size > 1 %}
         <ul>
           {% for image in product.images %}
-            <li class="zoom">
+            <li class="product-image-wrapper">
                 <div class="variantlabel">
                     {% if image.attached_to_variant? == false %}
                         {{image.alt}}
@@ -33,7 +33,7 @@ Start product-photos
                         {% endfor %}
                     {% endif %}
                 </div>
-              <div stye="overflow:hidden;">
+              <div class="zoom">
                   <a href="{{ image | img_url: '1024x1024' }}">
                     <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
                   </a>
