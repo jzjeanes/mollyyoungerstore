@@ -25,13 +25,20 @@ Start product-photos
           {% for image in product.images %}
             <li class="zoom">
                 <div class="variantlabel">
-                    {% for variant in image.variants %}
-                    {{ variant.title }}
-                    {% endfor %}
+                    {% if image.attached_to_variant? == false %}
+                        {{image.alt}}
+                    {% else %}
+                        {% for variant in image.variants %}
+                            {{ variant.title }}
+                        {% endfor %}
+                    {% endif %}
                 </div>
-              <a href="{{ image | img_url: '1024x1024' }}">
-                <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
-              </a>
+              <div stye="overflow:hidden;">
+                  <a href="{{ image | img_url: '1024x1024' }}">
+                    <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+                  </a>
+              </div>
+              
             </li>
             
           {% endfor %}
