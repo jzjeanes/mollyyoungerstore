@@ -24,23 +24,22 @@ Start product-photos
         <ul>
           {% for image in product.images %}
             <li class="product-image-wrapper">
-                <div class="variantlabel">
-                    {% if image.attached_to_variant? == false %}
-                        {{image.alt}}
-                    {% else %}
-                        {% for variant in image.variants %}
-                            {{ variant.title }}
-                        {% endfor %}
-                    {% endif %}
+                <div class="zoom">
+                      <a href="{{ image | img_url: '1024x1024' }}">
+                        <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
+                      </a>
+                    <div class="variantlabel">
+                        {% if image.attached_to_variant? == false %}
+                            {{image.alt}}
+                        {% else %}
+                            {% for variant in image.variants %}
+                                {{ variant.title }}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
-              <div class="zoom">
-                  <a href="{{ image | img_url: '1024x1024' }}">
-                    <img src="{{ image | img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" />
-                  </a>
-              </div>
-              
+
             </li>
-            
           {% endfor %}
         </ul>
       {% endif %}
@@ -94,7 +93,11 @@ Start product-details
       {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
         {% assign hide_default_title = true %}
       {% endif %}       
+  
+  
 
+    {% if product.variants.size == 1 %}
+    {% else %}
       <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">
         
         <select id="product-select" name="id">
@@ -105,7 +108,8 @@ Start product-details
           </option>
         {% endfor %}
         </select>
-      </div>        
+      </div>   
+     {% endif %}
         
         
         
@@ -121,6 +125,7 @@ Start product-details
       <div id="product-add">
         <input type="submit" name="add" class="primarycta" id="add" value="{{ add_to_cart | escape }}">
       </div>
+      {% section 'wait' %}
       
       <div itemprop="description" id="product-description">
         {{ product.description }}
@@ -133,7 +138,7 @@ Start product-details
       <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
       
       
-      
+      {% comment %} Shows 'Next product' if in a collection.
       {% if collection %}
         {% if collection.previous_product or collection.next_product %}
         <div>     
@@ -148,6 +153,7 @@ Start product-details
         </div>
         {% endif %}
       {% endif %}
+      {% endcomment %}
   </div>
 
   </form>

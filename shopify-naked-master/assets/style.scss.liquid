@@ -74,7 +74,7 @@ p {
 }
 
 .large {
-    font-size:2.9vw;
+    font-size:3.5vw;
     text-transform:none;
     line-height:1.2;
 }
@@ -89,7 +89,8 @@ p {
 
 label {
     display:block;
-    margin-bottom:.5rem;
+    margin-bottom:.25rem;
+    font-size:.85rem;
 }
 
 
@@ -212,6 +213,25 @@ a:active {
     overflow: hidden;
 }
 
+.half {
+    width:50%;
+    height:auto;
+    box-sizing:border-box;
+    overflow: hidden;
+}
+
+.third {
+    width:calc(100% / 3);
+    height:auto;
+    box-sizing:border-box;
+    overflow:hidden;
+}
+
+.third img {
+    max-width:100%;
+    max-height:100%;
+}
+
 .large-padding {
     padding:15% 6%;
 }
@@ -269,24 +289,24 @@ a:active {
  /*============================= Header =============================*/
  
 header {
-    height:9vw;
+    height:8vw;
     letter-spacing:.02rem;
     text-decoration:none;
     border-bottom:1px solid black;
 }
 
-#nav {
+#nav, #nav-cart {
     position:fixed;
-    left:2vw;
-    top:3.8vw;
+    top:3.4vw;
     z-index:10;
 }
 
+#nav {
+    left:2vw;
+}
+
 #nav-cart {
-    position:fixed;
     right:2vw;
-    top:3.8vw;
-    z-index:10;
 }
 
 
@@ -296,7 +316,7 @@ header {
     /* center the element */
     right: 0;
     left: 0;
-    top:2.7vw;
+    top:2.35vw;
     margin-right: auto;
     margin-left: auto;
     /* give it dimensions */
@@ -350,6 +370,10 @@ header {
     font-size:1.2rem;
 }
 
+.page a {
+    text-decoration:underline;
+}
+
 iframe {
     width:100%;
 }
@@ -357,8 +381,6 @@ iframe {
 .page img {
     max-width:150%;
     max-height:150%;
-    position:relative;
-    right: 25%;
     margin-top:1rem;
     margin-bottom:1rem;
 }
@@ -510,30 +532,43 @@ th, tr {
     font-weight:bold;
 }
 
-#product-variants {
-    margin-bottom:.5rem;
-}
-
 #product-description {
     margin-bottom:3rem;
 }
 
-#product-add {
-    margin-bottom:3rem;
+#product-add, #product-variants {
+    margin-bottom:.25rem;
+    display:inline-block;
 }
 
+#wait {
+    margin-bottom:2rem;
+    font-size:.85rem;
+}
 
+/* OLD VARIANT LABEL, SIDEWAYS
 .variantlabel {
     position: absolute;
     display: block;
     font-size: .9rem;
     z-index: 1000;
     transform: rotate(90deg);
-    left: 30.5vw;
-    margin-top: 29vw;
-    width: 59vw;
+    left: 31vw;
+    margin-top: -31vw;
+    width: 58vw;
     padding-right: .5vw;
     text-align: right;
+}
+*/
+
+.variantlabel {
+    position: absolute;
+    display: block;
+    font-size: .85rem;
+    z-index: 1000;
+    background-color: grey;
+    padding: .45rem .45rem .35rem .45rem;
+    bottom: 0;
 }
 
 .product-image-wrapper {
@@ -644,16 +679,16 @@ html {
 }
 
 .large-padding {
-    padding: 8% 4%;
+    padding: 10% 4% 4% 4%;
 }
 
 header {
-    height:13vw;
+    height:11vw;
     letter-spacing:.02rem;
     text-decoration:none;
 }
 
-#nav {
+#nav, #nav-cart {
     position:fixed;
     top:5vw;
 }
@@ -667,22 +702,17 @@ header {
     /* center the element */
     right: 0;
     left: 0;
-    top:4vw;
+    top:3.5vw;
     margin-right: auto;
     margin-left: auto;
     /* give it dimensions */
     height: auto;
-    width:35vw;
+    width:29vw;
     z-index:1;
 }
 
 #logo img {
     height:auto;
-}
-
-#nav-cart {
-    position:fixed;
-    top:5vw;
 }
 
 .page, #cart {
@@ -691,14 +721,6 @@ header {
 }
 
 
-
-.variantlabel {
-    font-size: .85rem;
-    left: 30.5vw;
-    margin-top: 28.5vw;
-    width: 58vw;
-}
-
 }
 
 /*============================= Tiny Computers =============================*/
@@ -706,7 +728,7 @@ header {
 @media screen and (max-width: 550px) {
  
      header {
-         height:16vw;
+         height:15vw;
      }
      
      .page, #cart {
@@ -716,11 +738,12 @@ header {
      
      #nav, #nav-cart {
          top:6vw;
+         font-size:.95rem;
      }
      
      #logo {
          width:42vw;
-         top:5vw;
+         top:4.7vw;
      }
      
      #home-products {
@@ -734,6 +757,10 @@ header {
      .two_fifths {
          width:100%;
      }
+     
+     .large-padding {
+        padding: 7% 4% 7% 4%;
+    }
      
      .large {
          font-size:1.75rem;
@@ -829,8 +856,6 @@ header {
     textarea:hover, select:hover {
       font-size: 16px;
     }
-    
-    
 }
 
 /*============================= Big Computers! =============================*/
