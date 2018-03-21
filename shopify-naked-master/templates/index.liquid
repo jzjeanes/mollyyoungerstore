@@ -10,18 +10,32 @@
 {{ content_for_index }}
 {% section 'promo' %}
 
-
-<div class="grid" id="process">
-    <div class="third">
-        <p>The plaster mould, an early sculptural form.</p>
+{% comment %}
+<div id="feature-process">
+    <div class="grid">
+        <div class="third" id="process-one">
+            <p>1.</p>
+            <p>The plaster mould, an early sculptural form.</p>
+        </div>
+        <div class="third" id="process-two">
+            <p>2.</p>
+            <p>Natural latex carefully cast to create functional, durable luggage.</p>
+        </div>
+        <div class="third" id="process-three">
+            <p>3.</p>
+            <p>An inside out egg—the final product keeps the impression of its origin.</p>
+        </div>
     </div>
-    <div class="third">
-        <p>Natural latex carefully cast to create functional, durable luggage.</p>
-    </div>
-    <div class="third">
-        <p>An inside out egg—the final product keeps the impression of its origin.</p>
+    <div id="process-hero">
+        <img src="{{ 'process.jpg' | asset_url }}">
     </div>
 </div>
+{% endcomment %}
+
+
+
+
+
 
 <div id="home-products">
     <h1>Products</h1>
@@ -43,4 +57,21 @@
       {% if paginate.pages > 1 %}
         {{ paginate | default_pagination }}
       {% endif %}
+</div>
+
+
+<div id="feature-process">
+    <div class="grid">
+        <div class="two_fifths" id="processtext">
+            <h3>1.</h3>
+            <p>The plaster mould, an early sculptural form.</p>
+            <h3>2.</h3>
+            <p>Natural latex carefully cast to create functional, durable luggage.</p>
+            <h3>3.</h3>
+            <p>An inside out egg—the final product keeps the impression of its origin.</p>
+        </div>
+        <div class="three_fifths" id="process-hero">
+            <img src="{{ 'process.jpg' | asset_url }}">
+        </div>
+    </div>
 </div>
