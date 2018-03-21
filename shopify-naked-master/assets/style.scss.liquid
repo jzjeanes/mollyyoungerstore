@@ -266,6 +266,7 @@ a:active {
 	display: block;
 	position: relative;
 	cursor:zoom-in;
+	padding-bottom:100%;
 }
 
 .zoom:active {
@@ -340,6 +341,10 @@ header {
     display:inline;
     margin-right:1rem;
     margin-bottom:0;
+}
+
+#footer-nav li {
+    line-height:2.5rem;
 }
 
 #nav ul {
@@ -519,6 +524,7 @@ th, tr {
     height:100%;
     border-top:1px solid black;
     display:block;
+    position:absolute;
 }
 
 #product-photos ul, #product-photos li {
@@ -732,8 +738,16 @@ header {
      }
      
      .page, #cart {
-        width:95vw;
+        width:90vw;
         padding-top:2vw;
+    }
+    
+    .page ul {
+        padding-left:1.5rem;
+    }
+    
+    #footer-nav li {
+        margin-bottom:1.5rem;
     }
      
      #nav, #nav-cart {
